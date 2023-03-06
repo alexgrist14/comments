@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+<div class="comments-container">
+    <div class="comments">
+    </div>
+
+    <form class="main-form" onsubmit="return false" method="post" name="comment">
+      <div class="comment-info">
+        <input type="text" placeholder="Name" name="name" required>
+        <input type="date" id="date" name="date" required>
+        <input class="text-comment" type="text" placeholder="Your comment" name="text" required>
+      </div>
+
+      <div>
+        <button type="submit">Send</button>
+      </div>
+    </form>
+</div>
+<script src="scripts/date.js"></script>
+<script src="scripts/addComment.js"></script>
+</body>
+</html>
