@@ -6,66 +6,87 @@ body {
   justify-content: center;
 }
 
-.comments {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .main-form {
+  max-width: 300px;
   margin-top: 20px;
-}
+  position: fixed;
+  bottom: 50px;
+  .comment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .text-comment {
+      color: #444;
+      font: inherit;
+      outline: 0;
+      border-radius: 3px;
+      border: 1px solid #cecece;
+      background-color: #fefefe;
+      box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.06);
+      overflow: auto;
+      width: 91%;
+      max-width: 800px;
+      min-height: 80px;
+      padding: 15px 20px;
+    }
+    .name-comment{
 
-.comment-content {
-  position: relative;
-  border: 1px solid black;
-}
+    }
+    .date-comment{
 
-.comment-content img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
+    }
+  }
+  button {
+    background-color: #7fb76e;
+    box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    border: 0;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 25px;
+    margin-top: 18px;
+  }
 }
-
 .comments-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  .comments {
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow: auto;
+    .comment-content {
+      position: relative;
+      height: auto;
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+      :nth-child(1){
+        margin-right: 20px;
+        font-size: 1.2rem;
+      }
+      p{
+        width: 100%;
+        height: auto;
+        word-wrap: break-word;
+      }
+      .like-button{
+        width: 50px;
+      }
+    }
+  }
 }
 
-.comment-info {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+input::-webkit-input-placeholder {
+  color: #607883;
 }
-
-button {
-  background-color: #7fb76e;
-  box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.12);
-  border-radius: 2px;
-  border: 0;
-  color: #ffffff;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 25px;
-  margin-top: 18px;
-}
-
-.text-comment {
-  color: #444;
-  font: inherit;
-  outline: 0;
-  border-radius: 3px;
-  border: 1px solid #cecece;
-  background-color: #fefefe;
-  box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.06);
-  overflow: auto;
-  width: 91%;
-  max-width: 800px;
-  min-height: 80px;
-  padding: 15px 20px;
-}
-
 /*# sourceMappingURL=index.scss.map */

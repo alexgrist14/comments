@@ -11,31 +11,40 @@ function appendComment(){
     const comment = document.createElement('div');
     const deleteButton = document.createElement('img');
     const nameOfComment = document.createElement('span');
-    const dateOfComment = document.createElement('div');
-    const textOfComment = document.createElement('div');
+    const dateOfComment = document.createElement('span');
+    const textOfComment = document.createElement('p');
     const currentDate = new Date(date.value);
 
+    if (/^[a-zA-Z]/.test(name.value)) {
+        deleteButton.src = '../assets/delete.png';
+        comment.classList.add("comment-content");
 
+        nameOfComment.append(name.value);
+        dateOfComment.append(formatDate(currentDate));
+        textOfComment.append(text.value);
 
-    deleteButton.src = '../assets/delete.png';
-    comment.classList.add("comment-content");
+        comment.append(nameOfComment);
+        comment.append(dateOfComment);
+        comment.append(textOfComment);
+        comment.append(deleteButton);
+        addLikeButton(comment);
 
-    nameOfComment.append(name.value);
-    dateOfComment.append(formatDate(currentDate));
-    textOfComment.append(text.value);
+        commentsBlock.append(comment);
 
-    comment.append(nameOfComment);
-    comment.append(dateOfComment);
-    comment.append(textOfComment);
-    comment.append(deleteButton);
+        clearForm();
 
-    addLikeButton(comment);
+        deleteButton.addEventListener('click',()=>{
+            comment.remove();
+        });
+    } else {
+        alert("The name must begin with the letters.");
+        return false
+    }
+}
 
-    commentsBlock.append(comment);
-
-    deleteButton.addEventListener('click',()=>{
-        comment.remove();
-    });
+function clearForm(){
+    name.value = "";
+    text.value = "";
 }
 
 function addLikeButton(comment){
@@ -63,13 +72,13 @@ function formatDate(date) {
     const diff = Math.floor((today.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
 
     if (date.toDateString() === today.toDateString()) {
-        return "today " + date.toLocaleDateString();
+        return "today " + getTime() + date.toLocaleDateString();
     } else if (date.toDateString() === yesterday.toDateString()) {
-        return "yesterday " + date.toLocaleDateString();
+        return "yesterday " + getTime() + date.toLocaleDateString();
     } else if (diff <= 365) {
-        return diff + " days ago " + date.toLocaleDateString();
+        return diff + " days ago " + getTime() + date.toLocaleDateString();
     } else {
-        return "more than year ago " + date.toLocaleDateString();
+        return "more than year ago " + getTime() + date.toLocaleDateString();
     }
 }
 
@@ -78,6 +87,13 @@ function getTime(){
     let hours = today.getHours();
     let minutes = today.getMinutes();
 
-    return `${hours}:${minutes}`;
+    if(hours < 10){
+        hours = '0' + hours;
+    }
+    if(minutes< 10){
+        minutes = '0' + minutes;
+    }
+
+    return `${hours}:${minutes} `;
 }
 

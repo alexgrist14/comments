@@ -12,9 +12,9 @@
 
     <form class="main-form" onsubmit="return false" method="post" name="comment">
       <div class="comment-info">
-        <input type="text" placeholder="Name" name="name" required>
-        <input type="date" id="date" name="date" required>
-        <input class="text-comment" type="text" placeholder="Your comment" name="text" required>
+        <input class="name-comment" type="text" placeholder="Name" name="name" maxlength="20" required>
+        <input class="date-comment" type="date" id="date" name="date" min="2001-01-01" required>
+        <input class="text-comment" type="text" placeholder="Your comment" name="text" maxlength="250" required>
       </div>
 
       <div>
