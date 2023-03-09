@@ -16,7 +16,7 @@ function appendComment(){
     const currentDate = new Date(date.value);
 
     if (/^[a-zA-Z]/.test(name.value)) {
-        deleteButton.src = '../assets/delete.png';
+        deleteButton.src = './assets/delete.png';
         comment.classList.add("comment-content");
 
         nameOfComment.append(name.value);
